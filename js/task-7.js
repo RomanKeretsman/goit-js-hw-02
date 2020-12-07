@@ -31,17 +31,11 @@ const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 const isLoginValid = function (login) {
-  if (login.length < 4 || login.length > 16) {
-    return false;
-  }
-  return true;
+  return (login.length > 3) & (login.length < 17);
 };
 
 const isLoginUnique = function (allLogins, login) {
-  if (allLogins.includes(login)) {
-    return false;
-  }
-  return true;
+  return !allLogins.includes(login);
 };
 
 const addLogin = function (allLogins, login) {

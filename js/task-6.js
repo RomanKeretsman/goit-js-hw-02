@@ -9,25 +9,21 @@
 let input;
 const numbers = []; //Массив чисел
 let total = 0; // Общая сумма чисел из массива
-do {
-  input = prompt('Введи число'); //Ввод чисел пользователем
 
-  if (isNaN(input)) {
+while (input !== null) {
+  input = prompt('Введи число');
+  const inputNumber = Number(input);
+
+  if (Number.isNaN(inputNumber)) {
     alert('Было введено не число, попробуйте еще раз');
     continue;
-  } else if (input === '') {
-    continue;
-  } else if (input === null) {
-    for (let i = 0; i < numbers.length; i += 1) {
-      total += Number(numbers[i]);
-    }
-  } else {
-    numbers.push(input);
   }
-} while (input !== null);
-if (
-  total !== 0
-    ? console.log(`Общая сумма чисел равна ${total}`)
-    : console.log('Нету даных для подсчета')
-);
+  numbers.push(inputNumber);
+}
+if (numbers.length) {
+  for (const number of numbers) {
+    total += number;
+  }
+}
+console.log(`Общая сумма чисел равна ${total}`);
 
